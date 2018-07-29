@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load static %}
+{% load staticfiles %}
 <html lang="en">
 
 <head>
@@ -9,9 +9,33 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+
 </head>
 
 <body>
+    <!-- NAVBAR / HEADER-->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'products:index' %}">
+                    <img  class="d-inline-block align-top logo" src="{% static 'logo.png' %}" alt="">
+                    Product Hunt
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ml-auto">
+                        <a href="{url 'accounts:signup' }" class="nav-item nav-link">Sign Up</a>
+                        <a href="{% url 'accounts:login' %}" class="nav-item nav-link">Login</a>
+                    </div>
+            </div>
+            </div>
+        </nav>
+    </header>
+
     <!-- Main content to be extended from later-->
     {% block body %} 
     {% endblock %}
