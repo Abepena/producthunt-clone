@@ -7,6 +7,31 @@
     
 
 {% block body %}
-    This is the sign up page
+
+<div class="container">
+    
+    {% if error %}
+        <br>
+        <p class="text-danger">
+        {{ error }}
+        </p>
+        <br>
+    {% endif %}
+
+    <h1 class=''>Sign up!</h1>
+    <form method="POST" class="form-group" width="500px"action="{% url 'accounts:signup' %}">
+    {% csrf_token %}
+        <label class="" for="username">Username:</label><br>
+        <input class="" type="text" name="username"><br>
+        <label class="" for="password">Password:</label><br>
+        <input class="" type="password" name="password"><br>
+        <label class="" for="confirm-password">Confirm Password:</label><br>
+        <input class="" type="password" name="confirm-password">
+        <br>
+        <br>
+        <input type="submit" class="btn btn-primary"value='Sign Up'>
+
+    </form>
+</div>
 {% endblock  %}
     

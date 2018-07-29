@@ -7,6 +7,26 @@
     
 
 {% block body %}
-    This is the Login page
+<div class="container">
+    
+        {% if error %}
+            <br>
+            <p class="text-danger">
+            {{ error }}
+            </p>
+        {% endif %}
+    
+        <h1 class=''>Login</h1>
+        <form method="POST" class="form-group" width="500px"action="{% url 'accounts:login' %}">
+        {% csrf_token %}
+            <label class="" for="username">Username:</label><br>
+            <input class="" type="text" name="username"><br>
+            <label class="" for="password">Password:</label><br>
+            <input class="" type="password" name="password"><br>
+            <br>
+            <input type="submit" class="btn btn-primary"value='Login'>
+    
+        </form>
+</div>
 {% endblock  %}
     
