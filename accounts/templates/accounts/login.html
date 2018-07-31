@@ -1,9 +1,16 @@
 {% extends "base.html" %}
 
+{% load static %}
 
 {% block title %}
     Login
 {% endblock  %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'css/accounts/login-form.css'%}">
+{% endblock  %}
+    
     
 
 {% block body %}
@@ -15,17 +22,26 @@
             {{ error }}
             </p>
         {% endif %}
-    
-        <h1 class=''>Login</h1>
-        <form method="POST" class="form-group" width="500px"action="{% url 'accounts:login' %}">
-        {% csrf_token %}
-            <label class="" for="username">Username:</label><br>
-            <input class="" type="text" name="username"><br>
-            <label class="" for="password">Password:</label><br>
-            <input class="" type="password" name="password"><br>
-            <br>
-            <input type="submit" class="btn btn-primary"value='Login'>
-    
+
+        <form method="POST" action="{% url 'accounts:login' %}" class="form-login">
+            {% csrf_token %}
+            <div class="text-center mb-4">
+                <img class="mb-4" src="{% static 'logo.png' %}" alt="" height=72 width=72>
+                <h1>Sign in</h1>
+            </div>
+            <div class="form-label-group">
+                <input name="username" type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+                <label for="inputUsername">Username</label>
+            </div>
+            <div class="form-label-group">
+                <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required autofocus>
+                <label for="inputPassword">Password</label>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+            <p class="text-center text-muted my-4">
+                New to product hunt?
+                <a href="{% url 'accounts:signup' %}">Register</a>
+            </p>
         </form>
 </div>
 {% endblock  %}

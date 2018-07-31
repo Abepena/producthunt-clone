@@ -19,7 +19,7 @@ def signup(request):
                     request.POST["username"], password=request.POST["password"]
                 )
                 login(request, user)
-                return redirect("products:index")
+                return redirect("index")
 
         # Return error if passwords do not match
         else:
@@ -39,7 +39,7 @@ def login_view(request):
 
         if user:
             login(request, user)
-            return redirect("products:index")
+            return redirect("index")
         else:
             error = "username or password is incorrect"
             return render(request, "accounts/login.html", {"error": error})
@@ -49,4 +49,4 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect("products:index")
+    return redirect("index")

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+    Create A Product
+{% endblock  %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'css/products/product-form.css'%}">
+{% endblock  %}
+    
+    
+
+{% block body %}
+<div class="container">
+    
+        {% if error %}
+            <br>
+            <p class="text-danger">
+            {{ error }}
+            </p>
+        {% endif %}
+
+        <form method="POST" action="{% url 'products:create' %}" enctype="multipart/form-data" class="form-product">
+            {% csrf_token %}
+            <div class="text-center mb-4">
+                <img class="my-3" src="{% static 'create.png' %}" alt="" height=64 width=64>
+                <h1>Create a Product</h1>
+            </div>
+            <!-- Title -->
+            <div class="form-label-group">
+                <input name="title" type="text" id="inputTitle" class="form-control" placeholder="Title" autofocus required>
+                <label for="inputTitle">Title</label>
+            </div>
+            
+            <!-- URL -->
+            <div class="form-label-group">
+                    <input name="url" type="url" id="inputURL" class="form-control" placeholder="URL">
+                    <label for="inputURL">URL</label>
+                </div>
+
+            <!-- Image -->
+            <div class="form-label-group">
+                <input name="image" type="file" id="inputimage" class="form-control" placeholder="Image">
+                <label for="inputImage">Image</label>
+            </div>
+            <!--Icon -->
+            <div class="form-label-group">
+                <input name="icon" type="file" id="inputIcon" class="form-control" placeholder="icon">
+                <label for="inputIcon">Icon</label>
+            </div>
+
+            <!-- Body -->
+            <div class="form-label-group">
+                <textarea style="min-height:10rem" name="body" type="text-area" id="inputBody" class="form-control" required></textarea>
+                <label for="inputBody">Body</label>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Create Product</button>
+        </form>
+        <footer class="mt-5 text-center text-muted">Icon made by Freepik from www.flaticon.com </footer>
+</div>
+
+{% endblock  %}
+    

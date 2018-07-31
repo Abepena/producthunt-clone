@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-{% load staticfiles %}
+{% load static %}
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/producthunt/main.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'main.css' %}">
-
+    <link rel="stylesheet" href="{% static 'open-iconic/font/css/open-iconic-bootstrap.css' %}">
+    {% block stylesheets %}{% endblock  %}
 </head>
 
 <body>
     <!-- NAVBAR / HEADER-->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'products:index' %}">
+                <a class="navbar-brand" href="{% url 'index' %}">
                     <img  class="d-inline-block align-top logo" src="{% static 'logo.png' %}" alt="">
                     Product Hunt
                 </a>
@@ -29,11 +30,12 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ml-auto">
                         {% if user.is_authenticated %}
-                        <a href="" class="nav-item nav-link">{{ user.username.capitalize }}</a>
-                        <a href="{% url 'accounts:logout' %}" class="nav-item nav-link">Logout</a>
+                            <a href="" class="nav-item nav-link">{{ user.username.capitalize }}</a>
+                            <a href="{% url 'products:create' %}" class="nav-item nav-link"><span class="oi oi-plus"></span> Create</a>
+                            <a href="{% url 'accounts:logout' %}" class="nav-item nav-link">Logout</a>
                         {% else %}
-                        <a href="{% url 'accounts:signup' %}" class="nav-item nav-link">Sign Up</a>
-                        <a href="{% url 'accounts:login' %}" class="nav-item nav-link">Login</a>
+                            <a href="{% url 'accounts:signup' %}" class="nav-item nav-link">Sign Up</a>
+                            <a href="{% url 'accounts:login' %}" class="nav-item nav-link">Login</a>
                         {% endif %}
                     </div>
             </div>
@@ -42,7 +44,9 @@
     </header>
 
     <!-- Main content to be extended from later-->
+
     {% block body %} 
+
     {% endblock %}
 
     <!-- Bootstrap jquery, popper, and JS scripts -->
