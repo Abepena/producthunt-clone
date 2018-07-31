@@ -5,7 +5,9 @@
 <div class="container">
     <div class="row justify-content-start py-3">
         <div class="col-sm-2">
-            <img src="{{ product.icon.url}}" alt="{{ product.title }} icon" class="d-block img-circle align-center" style="max-height:64px">
+            <a href="{{ product.url }}">
+                <img src="{{ product.icon.url}}" alt="{{ product.title }} icon" class="d-block img-circle align-center" style="max-height:64px">
+            </a>
         </div>
         <div class="col-sm-6">
             <a href="{{ product.url }}">
@@ -20,16 +22,17 @@
         <div class="col-md-4 my-auto">
             <a href="javascript:{document.getElementById('upvote').submit()}">
                 <button class="btn btn-primary btn-block my-2">
-                    <span class="oi oi-caret-top"></span> Upvote {{product.votes_total}}</button>
+                     <i class="fas fa-chevron-up"></i> Upvote {{product.votes_total}}
+                </button>
             </a>
         </div>
     </div>
     <div class="row" id="product-hunter">
         <div class="col-md-4">
-            <h4>Hunted by {{ product.hunter.username}}</h4>
+            <h4>Hunted by <i class="fas fa-user-circle"></i> {{ product.hunter.username}}</h4>
         </div>
         <div class="col-md-4">
-            <h4>{{ product.pretty_pub_date }}</h4>
+            <h4><i class="fas fa-calendar"></i> {{ product.pretty_pub_date }}</h4>
         </div>
     </div>
     <div class="row" id="product-body">

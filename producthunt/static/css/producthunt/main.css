@@ -8,6 +8,29 @@ html {
     box-sizing: inherit;
 }
 
+div.jumbotron-bg-image {
+    display: flex;
+    background-image: url("/static/polygon-orange.jpg");
+    background-size: cover;
+    color: white;
+    text-shadow: 0 0 5px black;
+    min-height: 20em;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+a:hover{
+    text-decoration: none !important;
+}
+
+button.btn-primary, button.btn-primary, button.btn-primary:hover, button.btn-primary:active, button.btn-primary:visited{
+    background:#da552f;
+    border: #da552f;
+    text-decoration: none;
+}
+
+
+
 .logo {
     height: 30px;
     width: 30px;

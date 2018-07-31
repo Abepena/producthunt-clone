@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'open-iconic/font/css/open-iconic-bootstrap.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
     {% block stylesheets %}{% endblock  %}
 </head>
 
@@ -31,7 +32,7 @@
                     <div class="navbar-nav ml-auto">
                         {% if user.is_authenticated %}
                             <a href="" class="nav-item nav-link">{{ user.username.capitalize }}</a>
-                            <a href="{% url 'products:create' %}" class="nav-item nav-link"><span class="oi oi-plus"></span> Create</a>
+                            <a href="{% url 'products:create' %}" class="nav-item nav-link"><i class="fas fa-plus"></i> Create</a>
                             <a href="{% url 'accounts:logout' %}" class="nav-item nav-link">Logout</a>
                         {% else %}
                             <a href="{% url 'accounts:signup' %}" class="nav-item nav-link">Sign Up</a>
