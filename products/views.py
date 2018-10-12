@@ -1,7 +1,10 @@
-from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Product
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
 from django.utils import timezone
+from django.views.generic.edit import DeleteView
+
+from .models import Product
 
 
 def index(request):
@@ -49,3 +52,8 @@ def upvote(request, product_id):
         product.votes_total += 1
         product.save()
         return redirect("products:detail", product_id)
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    success_url = reverse_lazy('products:index')
+    

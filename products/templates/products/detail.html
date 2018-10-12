@@ -45,6 +45,9 @@
         {% csrf_token %}
         <input type="hidden">
     </form>
+    {% if user == product.hunter %}
+    <a href="{% url 'products:delete' pk=product.pk %}" class="btn btn-danger">Delete</a>
+    {% else %}
+    {% endif %}
 </div>
-
 {% endblock %}
