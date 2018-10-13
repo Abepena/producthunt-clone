@@ -89,8 +89,8 @@ DATABASES = {
         # 'PASSWORD': config('DB_PASSWORD'),
         # 'HOST': config('DB_HOST'),
         # 'PORT': '',
-    }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -138,7 +138,7 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
-try:
-    from .local_settings import *
-except ImportError:
-    print("Local settings were not found")
+# try:
+#     from .local_settings import *
+# except ImportError:
+#     print("Local settings were not found")
